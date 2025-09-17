@@ -1,0 +1,54 @@
+/* Top navbar */
+.top-navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Logo */
+.bookmyshow-logo img {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* Search bar */
+.search-bar {
+  max-width: 600px;
+}
+.search-bar input {
+  border-radius: 25px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+}
+
+/* Location dropdown */
+.location-dropdown {
+  border-radius: 15px;
+  font-weight: 300;
+}
+.location-dropdown .dropdown-menu {
+  min-width: 160px;
+  border-radius: 8px;
+}
+
+/* Sign in button */
+.signin-btn {
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 6px 18px;
+  background-color: #e50914 !important;
+}
+
+/* Under navbar */
+.under-navbar {
+  background: #f8f9fa;
+  padding: 0 30px;
+}
+.under-navbar .nav-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333 !important;
+  margin-right: 15px;
+}
+.under-navbar .nav-link:hover {
+  color: #e50914 !important;
+}
