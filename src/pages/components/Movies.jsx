@@ -1,82 +1,15 @@
 import { useEffect, useState } from "react";
 import "./Movies.css";
+import Genres from "../../../data/Genres";
+import comingSoon from "../../../data/comingSoon";
+import languges from "../../../data/languges";
+import { useNavigate } from "react-router-dom";
+import nowShowing from "../../../data/nowShowing";
 
 function Movies() {
-  const nowShowing = [
-    {
-      title: "DS: Infinity Castle",
-      lang: "Japanese • Action",
-      img: "/movie1.avif",
-    },
-    { title: "Mirai", lang: "English • Animation", img: "/movie2.avif" },
-    { title: "The Conjuring", lang: "English • Horror", img: "/movie3.avif" },
-    { title: "Kotha Lokh", lang: "Telugu • Drama", img: "/movie4.avif" },
-    { title: "Ghaati", lang: "Telugu • Drama", img: "/movie5.avif" },
-    { title: "Bhaagi 4", lang: "Hindi • Action", img: "/movie6.avif" },
-    { title: "Little Hearts", lang: "Telugu • Drama", img: "/movie7.avif" },
-  ];
+  const navigate = useNavigate();
 
   const [location, setLocation] = useState("");
-
-  const comingSoon = [
-    {
-      title: "They call him OG",
-      lang: "Telugu • Action",
-      img: "/upcoming1.avif",
-    },
-    {
-      title: "Kantara: Part 2",
-      lang: "Telugu • Action",
-      img: "/upcoming2.avif",
-    },
-    {
-      title: "Avatar: Fire and Ash",
-      lang: "English • Animation",
-      img: "/upcoming3.avif",
-    },
-    {
-      title: "Ajey: The Untold story of a Yogi",
-      lang: "Hindi • Documentary",
-      img: "/upcoming4.avif",
-    },
-    {
-      title: "Rajasaab",
-      lang: "Telugu • Horror & Comedy",
-      img: "/upcoming5.avif",
-    },
-  ];
-
-  const languges = [
-    "English",
-    "Hindi",
-    "Kannada",
-    "Malayalam",
-    "Tamil",
-    "Telugu",
-  ];
-
-  const Genres = [
-    "Action",
-    "Animation",
-    "Comedy",
-    "Drama",
-    "Horror",
-    "Thriller",
-    "Romance",
-    "Sci-Fi",
-    "Fantasy",
-    "Adventure",
-    "Mystery",
-    "Documentary",
-    "Crime",
-    "Family",
-    "History",
-    "Music",
-    "Musical",
-    "War",
-    "Western",
-    "Biography",
-  ];
 
   useEffect(() => {
     localStorage.getItem("location")
@@ -85,6 +18,10 @@ function Movies() {
   }, []);
 
   const Format = ["2D", "3D", "4D", "IMAX", "IMAX 3D", "IMAX 4D"];
+
+  const handleClickToDetails = (movie) => {
+    navigate(`/movieDetails/${location}/${movie.title}/${movie.id}`);
+  };
 
   return (
     <div className="container-fluid">
@@ -158,16 +95,16 @@ function Movies() {
               <div className="accordion-item border-0 mb-3">
                 <h2 className="accordion-header">
                   <div className="d-flex align-items-center justify-content-between w-100">
-                  <button
-                    className="accordion-button collapsed flex-grow-1"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseOne"
-                  >
-                    Language
-                  </button>
+                    <button
+                      className="accordion-button collapsed flex-grow-1"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Language
+                    </button>
                   </div>
                 </h2>
                 <div
@@ -178,9 +115,7 @@ function Movies() {
                   <div className="accordion-body d-flex flex-wrap gap-2">
                     {languges.map((dt) => {
                       return (
-                        <button className="btn btn-outline-danger">
-                          {dt}
-                        </button>
+                        <button className="btn btn-outline-danger">{dt}</button>
                       );
                     })}
                   </div>
@@ -266,7 +201,11 @@ function Movies() {
             <h3 className="section-title mt-4">Now Showing</h3>
             <div className="movies-grid">
               {nowShowing.map((movie, index) => (
-                <div className="movie-card" key={index}>
+                <div
+                  className="movie-card"
+                  key={index}
+                  onClick={() => handleClickToDetails(movie)}
+                >
                   <img
                     src={movie.img}
                     alt={movie.title}

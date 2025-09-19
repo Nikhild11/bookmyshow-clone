@@ -1,16 +1,20 @@
 import { useState } from "react";
 import "./SigninModal.css";
+import { toast } from "react-toastify";
 
 function SigninModal() {
   const [show, setShow] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const Login = () => {
+    toast.success("Logged in successfully");
+  };
 
   return (
     <>
       {/* Sign In Button */}
-      <button
-        className="btn btn-danger mx-2"
-        onClick={() => setShow(true)}
-      >
+      <button className="btn btn-danger mx-2" onClick={() => setShow(true)}>
         Sign in
       </button>
 
@@ -30,13 +34,17 @@ function SigninModal() {
                 type="email"
                 placeholder="Email"
                 className="form-control mb-3"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 placeholder="Password"
                 className="form-control mb-3"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <button type="submit" className="btn btn-danger w-100">
+              <button className="btn btn-danger w-100" onChange={Login}>
                 Continue
               </button>
             </form>

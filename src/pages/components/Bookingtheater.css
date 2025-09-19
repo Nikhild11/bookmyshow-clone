@@ -1,0 +1,19 @@
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  vertical-align: middle; /* keeps it aligned with text */
+}
+
+.dot.active {
+  background-color: rgb(88, 247, 88); /* example active color */
+}
+
+.dot.booked {
+  background-color: rgb(243, 61, 61);
+}
+
+.dot.selected {
+  background-color: rgb(218, 240, 24);
+}

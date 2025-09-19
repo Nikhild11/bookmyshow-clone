@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import "./Sports.css";
+import "./Activities.css";
 
-function Sports() {
+function Activities() {
   const nowShowing = [
     {
-      title: "Telangana Half Marathon",
-      lang: "Marathon",
-      img: "/sports1.avif",
+      title: "Dola re Dola",
+      lang: "Navaratri Celebrations",
+      img: "/act1.avif",
     },
-    { title: "WHD Event", lang: "Marathon", img: "/sports2.avif" },
-    { title: "Enablethon 2025", lang: "Marathon", img: "/sports3.avif" },
-    { title: "Maverick Lap Track", lang: "Race", img: "/sports4.avif" },
-    { title: "Women's Cricket World Cup", lang: "Cricket", img: "/sports5.avif" },
-    { title: "FC Goa Vs AL NASSAR", lang: "Football", img: "/sports6.avif" },
-    { title: "Chess Tournament", lang: "Chess", img: "/sports7.avif" },
-    { title: "Cyclethon", lang: "Race", img: "/sports8.avif" },
-    { title: "Math Olympiad", lang: "Competition", img: "/sports9.avif" },
-    { title: " Kids Cyclethon", lang: "Race", img: "/sports10.avif" },
+    { title: "Dhandiya utsav", lang: "Navaratri Celebrations", img: "/act2.avif" },
+    { title: "Dhandiya utsav 2025", lang: "Navaratri Celebrations", img: "/act3.avif" },
+    { title: "SK Navaratri Ustav", lang: "Navaratri Celebrations", img: "/act4.avif" },
+    { title: "Navratri Dhandiya Ustav", lang: "Navaratri Celebrations", img: "/act5.avif" },
+    { title: "Raasleela", lang: "Navaratri Celebrations", img: "/act6.avif" },
+    { title: "Studio Tour", lang: "Tourist Attractions", img: "/act7.avif" },
+    { title: "Smash Game On", lang: "Adventure", img: "/act8.avif" },
+    { title: "District Gravity", lang: "Adventure", img: "/act9.avif" },
+    { title: " DC Kayaking", lang: "Adventure", img: "/act10.avif" },
   ];
 
   const [location, setLocation] = useState("");
@@ -28,13 +28,17 @@ function Sports() {
   ];
 
   const category = [
-    "Running",
-    "Cricket",
-    "Football",
-    "Basketball",
-    "Badminton",
-    "Marathon",
-    "Tennis",
+    "Navaratri Celebrations",
+    "Adventure",
+    "Amusement Park",
+    "Tourist Attractions",
+    "Theme Parks",
+    "Foods and Drinks",
+    "Dance and Music",
+    "Unique Tours",
+    "Cultural Events",
+    "Parties",
+    "Antiques, Heritage and Collectibles",
   ];
 
   useEffect(() => {
@@ -43,17 +47,10 @@ function Sports() {
       : setLocation("Hyderabad");
   }, []);
 
-  const Price = ["Free", "100 - 250", "250 - 500", "Above 500",];
+  const Price = ["Free", "100 - 250", "250 - 500", "500 - 1000","Above 1000"];
 
   return (
     <div className="container-fluid">
-      <section className="sportsbannerpromo mt-3">
-        <img
-          src="/sportsbanner1.avif"
-          alt="Sports banner promo"
-          className="banner-img"
-        />
-      </section>
 
       {/* Filters + Movies */}
       <div className="row mt-4">
@@ -160,7 +157,7 @@ function Sports() {
         {/* Movies Section */}
         <div className="col-12 col-md-9">
           <div>
-            <h3>Sports in {location}</h3>
+            <h3>Activities in {location}</h3>
             <div className="d-flex flex-wrap gap-2">
               {category.map((cat) => {
                 return (
@@ -193,4 +190,4 @@ function Sports() {
   );
 }
 
-export default Sports;
+export default Activities;
